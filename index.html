@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- HTML comments must be like this... -->
+<html>
+    <head>
+        <title>MAR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/NavRouter.css" rel="stylesheet" type="text/css" />
+        <link href="style/anime.css" rel="stylesheet" type="text/css" />  
+        <link href="style/clickSort.css" rel="stylesheet" type="text/css" />  
+
+        <style>
+
+
+        </style>
+    </head>
+    <body>
+        <div id="titleNav">
+            <div id="title">
+                MAR
+            </div>
+            <div id="nav">
+
+            </div>
+        </div>
+        <div id="content">
+
+            <!-- HTML comment: 
+                The content div is empty. It will get content "injected into it"
+                by the NavRouter component.
+            -->
+
+        </div> <!-- end of content area -->
+        <div id="footer">
+            Timothy Khumpan
+        </div>
+
+
+        <!-- Suggest you keep these in the same order as you see them in the NB project pane --> 
+        <script src="js/reusable/MakeNavRouter.js"></script>
+        <script src="js/reusable/MakeAnime.js"></script>
+        <script src="js/reusable/ajax.js"></script>
+        <script src="js/reusable/SortableTableUtils.js"></script>
+        <script src="js/reusable/MakeClickSortTable.js"></script>
+        <script src="js/content/userContent.js"></script>
+        <script src="js/content/blogContent.js"></script>
+        <script src="js/content/homeContent.js"></script>
+        <script src="js/content/animeContent.js"></script>
+        <script src="js/content/animeDbContent.js"></script>
+       
+
+        <script>
+            "use strict";
+
+            // Home | Account | Search | Tutorial | Blog
+
+            var myNavList = [
+
+                // property linkText is what shows up for the user as linked text in the Nav Bar.
+                // property linkURL is what shows up in the browser's address bar when they click that link. 
+                // property action is the function to be run when the NavRouter sees that link has been clicked. 
+                // -- it's the actual function, not function name, don't use quotes around homeContent). 
+                {linkText: "Home", linkURL: "#/home", action: homeContent},
+                {
+                    header: "Account",
+                    subMenu: [
+
+                        // These links show up in nav bar but are not functional because 
+                        // they have no linkURL and no action.
+                        {linkText: "Register"},
+                        {linkText: "Log In"},
+                        {linkText: "Log Out"},
+                        {linkText: "Profile"}
+                    ]
+                },
+                {
+                    header: "Search",
+                    subMenu: [
+                        {linkText: "Anime List", linkURL: "#/anime", action: animeContent},
+                        {linkText: "Users API", linkURL: "#/usersAPI", action: "webAPIs/listUsersAPI.jsp"},
+                        {linkText: "Other API", linkURL: "#/otherAPI", action: "webAPIs/listOtherAPI.jsp"},
+                        {linkText: "Slide Show"},
+                        {linkText: "Click Sort Users", linkURL: "#/userContent", action: userContent},
+                        {linkText: "Click Sort Other", linkURL: "#/animeDbContent", action: animeDbContent}
+                    ]
+                },
+
+                {
+                    header: "Tutorial",
+                    subMenu: [
+                        {linkText: "Proposal", linkURL: "#/proposal", action: "tutorial/proposal.pdf"},
+                        {linkText: "Proof Of Concept", linkURL: "#/tutPOC", action: "tutorial/index.html"},
+                        {linkText: "Demo", linkURL: "#/tutDemo", action: "tutorial/download/demo.html"},
+                        //{linkText: "Tutorial Home", linkURL: "#/tutHome", action: "tutorial/index.html"}
+                    ]
+                },
+
+                // action attribute is a function name - no quotes around blog.
+                {linkText: "Blog", linkURL: "#/blog", action: blogContent}
+            ];
+
+            var myNav = MakeNavRouter({
+                navId: "nav", // this is where the nav bar will be injected
+                navList: myNavList, // the list of link objects (linkText, linkURL, actions)
+                contentId: "content", // the id where content is to be injected
+                startLink: "#/home"     // routing will set this as the first link. 
+            });
+
+        </script>
+    </body>
+</html>

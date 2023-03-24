@@ -1,0 +1,55 @@
+/* 
+
+CSS File Naming Convention:
+
+Every JavaScript function that "Makes" a reusable UI component shall have a 
+component specific CSS file that's named like the component. Every CSS selector 
+in the file shall begin with a CSS class that matches the CSS file name.
+
+To follow the CSS naming convention, 
+   all CSS selectors in this file (named "obj.css")must start with ".obj".
+   This "localizes your styling" so that it only applies within an element 
+   classed "obj".          
+
+*/
+
+.anime {  /* applies to any dom element that's classed "anime" */
+    background-color: black;
+    margin: 1rem;
+    text-align: center;
+    border-radius:0.5rem;
+    color: white;
+}
+
+.anime h2 { /* applies to any "h2" tag that's in an "anime" dom element */
+    background-color: black;
+    padding: 0.5rem;
+    margin:0rem;
+    margin-bottom:1rem;
+    width: 100%;
+    border-radius:0.5rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    color: rgb(243, 117, 31);
+}
+
+
+.anime img { /* applies to any "img" tag that's in an "anime" dom element */
+    width: 75%;
+    box-shadow: 0.3rem 0.3rem 0.2rem rgba(0,0,0,0.8);
+    /* box shadow: left offset, right offset, size of blur, color */
+}
+
+.anime button {
+    background-color:black;
+    border-radius:  0.25rem;
+    color: white;
+}
+
+.anime button:hover{
+
+    background-color: #101820FF;
+    color: #F2AA4CFF;
+    border: 2px solid #F2AA4CFF;
+    
+}
