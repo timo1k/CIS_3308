@@ -17,3 +17,6 @@ http://cis-linux2.temple.edu:8080/sp23_3308_tuk21567/index.html#/home
 
 ## Week 5 2/17/23-2/20/23
 #### Wrote server side Web APIs using Java/JSP that extracts user data from my database and outputs that data onto a web page in JSON format. Writing seperate and reusable java classes to connect to a db or extract data from a SQL SELECT statement (Using classes from the java.sql package: (DriverManager, Connection), (PreparedStatement, ResultSet)). Using jsp implicit object out.print() to write to page
+
+## Final update 
+#### Implemented Create, Read, Update, Delete apis for two databases (users, and their posts), and created the frontend to be able to invoke these apis.
